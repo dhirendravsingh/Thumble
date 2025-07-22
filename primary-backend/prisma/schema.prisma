@@ -13,3 +13,52 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+model User {
+  id Int @id @default(autoincrement())
+  address String @unique
+  presigned_url String
+  tasks Task[]
+}
+
+
+model Worker {
+  id Int @id @default(autoincrement())
+  address String @unique
+  submissions Submission[]
+  pending_amount Int
+  locked_amount Int
+  balance_id Int
+}
+
+model Task {
+  id Int @id @default(autoincrement())
+  user_id Int
+  signature String
+  amount String
+  title String @default("Please select the most attractive thumbnail")
+  user User @relation(references: [id], fields: [user_id])
+  options Option[]
+  submission Submission[]
+}
+
+model Option {
+  id Int @id @default(autoincrement())
+  task_id Int
+  image_url String
+  task Task @relation(references: [id], fields: [task_id])
+  submissions Submission[]
+}
+
+
+model Submission {
+  id Int @id @default(autoincrement())
+  woker_id Int
+  worker Worker @relation(references: [id], fields: [woker_id])
+  option_id Int @unique
+  option Option @relation(references: [id], fields: [option_id])
+  task_id Int
+  task Task @relation(references: [id], fields: [task_id])
+  amount String
+}
