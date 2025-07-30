@@ -72,7 +72,7 @@ router.get("/presignedurl", middleware_1.middleware, (req, res) => __awaiter(voi
         },
         Expires: 3600
     });
-    console.log({ url, fields });
+    // console.log({url, fields})
     res.json({
         preSignedUrl: url,
         fields
