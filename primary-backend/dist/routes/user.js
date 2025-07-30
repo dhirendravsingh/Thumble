@@ -14,9 +14,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.userRouter = void 0;
 const express_1 = require("express");
+const middleware_1 = require("../middleware");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const prismaClient_1 = require("../client/prismaClient");
 const config_1 = require("../config");
+const client_s3_1 = require("@aws-sdk/client-s3");
+const s3_presigned_post_1 = require("@aws-sdk/s3-presigned-post");
 const router = (0, express_1.Router)();
 router.post("/signin", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const hardCodedAddress = "1234567890";
@@ -47,5 +50,32 @@ router.post("/signin", (req, res) => __awaiter(void 0, void 0, void 0, function*
             token
         });
     }
+}));
+const s3Client = new client_s3_1.S3Client({
+    credentials: {
+        accessKeyId: config_1.ACCESS_KEY_ID,
+        secretAccessKey: config_1.SECRET_ACCESS_KEY
+    },
+    region: "ap-south-1"
+});
+router.get("/presignedurl", middleware_1.middleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    //@ts-ignore
+    const userId = req.userId;
+    const { url, fields } = yield (0, s3_presigned_post_1.createPresignedPost)(s3Client, {
+        Bucket: `dhirendra-thumbnail-project-bucket`,
+        Key: `${userId}/${Math.random()}/image.jpg`,
+        Conditions: [
+            ['content-length-range', 0, 5 * 1024 * 1024] // 5 MB max
+        ],
+        Fields: {
+            'Content-Type': 'image/png'
+        },
+        Expires: 3600
+    });
+    console.log({ url, fields });
+    res.json({
+        preSignedUrl: url,
+        fields
+    });
 }));
 exports.userRouter = router;
