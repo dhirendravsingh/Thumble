@@ -20,6 +20,7 @@ const prismaClient_1 = require("../client/prismaClient");
 const config_1 = require("../config");
 const client_s3_1 = require("@aws-sdk/client-s3");
 const s3_presigned_post_1 = require("@aws-sdk/s3-presigned-post");
+const types_1 = require("../types");
 const router = (0, express_1.Router)();
 router.post("/signin", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const hardCodedAddress = "1234567890";
@@ -76,6 +77,39 @@ router.get("/presignedurl", middleware_1.middleware, (req, res) => __awaiter(voi
     res.json({
         preSignedUrl: url,
         fields
+    });
+}));
+router.post("/task", middleware_1.middleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    //@ts-ignore
+    const user_id = req.userId;
+    const body = req.body;
+    const parsedInput = types_1.taskInput.safeParse(body);
+    const DEFAULT_TITLE = "Please select the most appealing thumbnail";
+    if (!parsedInput.success) {
+        return res.status(411).json({
+            message: "Please enter correct inputs"
+        });
+    }
+    let response = yield prismaClient_1.client.$transaction((tx) => __awaiter(void 0, void 0, void 0, function* () {
+        var _a, _b;
+        const response = yield tx.task.create({
+            data: {
+                title: (_a = parsedInput.data) === null || _a === void 0 ? void 0 : _a.title,
+                amount: "1",
+                signature: (_b = parsedInput.data) === null || _b === void 0 ? void 0 : _b.signature,
+                user_id: user_id
+            }
+        });
+        yield tx.option.createMany({
+            data: parsedInput.data.options.map(x => ({
+                image_url: x.image_url,
+                task_id: response.id
+            }))
+        });
+        return response;
+    }));
+    res.json({
+        id: response.id
     });
 }));
 exports.userRouter = router;
