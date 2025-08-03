@@ -112,4 +112,46 @@ router.post("/task", middleware_1.middleware, (req, res) => __awaiter(void 0, vo
         id: response.id
     });
 }));
+router.get("/task", middleware_1.middleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    //@ts-ignore
+    const userId = req.userId;
+    const taskId = req.query.taskId;
+    const taskDetails = yield prismaClient_1.client.task.findFirst({
+        where: {
+            user_id: Number(userId),
+            id: Number(taskId)
+        },
+        include: {
+            options: true
+        }
+    });
+    if (!taskDetails) {
+        return res.status(404).json({
+            message: "Task not found"
+        });
+    }
+    const responses = yield prismaClient_1.client.submission.findMany({
+        where: {
+            task_id: Number(taskId)
+        },
+        include: {
+            option: true
+        }
+    });
+    const result = {};
+    taskDetails.options.forEach(o => {
+        result[o.id] = {
+            count: 0,
+            option: {
+                imageUrl: o.image_url
+            }
+        };
+    });
+    responses.forEach(r => {
+        result[r.option_id].count++;
+    });
+    return res.json({
+        result
+    });
+}));
 exports.userRouter = router;

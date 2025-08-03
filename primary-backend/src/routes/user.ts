@@ -112,5 +112,63 @@ router.post("/task", middleware, async (req, res)=>{
     })
 })
 
+router.get("/task", middleware, async (req, res)=>{
+  //@ts-ignore
+    const userId = req.userId as string
+    const taskId = req.query.taskId as string
+
+    const taskDetails = await client.task.findFirst({
+      where :  {
+        user_id : Number(userId),
+        id : Number(taskId)
+      },
+      include : {
+        options : true
+      }
+    })
+
+    if(!taskDetails){
+      return res.status(404).json({
+        message : "Task not found"
+      })
+    }
+
+    const responses = await client.submission.findMany({
+      where : {
+        task_id : Number(taskId)
+      },
+      include : {
+        option : true
+      }
+    })
+
+    const result : Record<string, {
+      count: number;
+        option : {
+        imageUrl: string;
+      }}> = {}
+
+      // Initialize result with options
+      taskDetails.options.forEach(o=>{ 
+         result[o.id] = {
+          count : 0,
+          option : {
+            imageUrl : o.image_url
+          }
+        }
+      })
+
+    // Count responses
+    responses.forEach(r=>{
+      
+        result[r.option_id].count++
+      
+    })
+    return res.json({
+      result
+    })
+ })
+
+
 export  const userRouter = router
 
