@@ -84,7 +84,7 @@ router.post("/task", middleware_1.middleware, (req, res) => __awaiter(void 0, vo
     const user_id = req.userId;
     const body = req.body;
     const parsedInput = types_1.taskInput.safeParse(body);
-    const DEFAULT_TITLE = "Please select the most appealing thumbnail";
+    const DEFAULT_TITLE = "Please select the most clickable thumbnail";
     if (!parsedInput.success) {
         return res.status(411).json({
             message: "Please enter correct inputs"

@@ -129,8 +129,7 @@ exports.Prisma.WorkerScalarFieldEnum = {
   id: 'id',
   address: 'address',
   pending_amount: 'pending_amount',
-  locked_amount: 'locked_amount',
-  balance_id: 'balance_id'
+  locked_amount: 'locked_amount'
 };
 
 exports.Prisma.TaskScalarFieldEnum = {
@@ -138,6 +137,7 @@ exports.Prisma.TaskScalarFieldEnum = {
   user_id: 'user_id',
   signature: 'signature',
   amount: 'amount',
+  done: 'done',
   title: 'title'
 };
 

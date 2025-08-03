@@ -2446,14 +2446,12 @@ export namespace Prisma {
     id: number | null
     pending_amount: number | null
     locked_amount: number | null
-    balance_id: number | null
   }
 
   export type WorkerSumAggregateOutputType = {
     id: number | null
     pending_amount: number | null
     locked_amount: number | null
-    balance_id: number | null
   }
 
   export type WorkerMinAggregateOutputType = {
@@ -2461,7 +2459,6 @@ export namespace Prisma {
     address: string | null
     pending_amount: number | null
     locked_amount: number | null
-    balance_id: number | null
   }
 
   export type WorkerMaxAggregateOutputType = {
@@ -2469,7 +2466,6 @@ export namespace Prisma {
     address: string | null
     pending_amount: number | null
     locked_amount: number | null
-    balance_id: number | null
   }
 
   export type WorkerCountAggregateOutputType = {
@@ -2477,7 +2473,6 @@ export namespace Prisma {
     address: number
     pending_amount: number
     locked_amount: number
-    balance_id: number
     _all: number
   }
 
@@ -2486,14 +2481,12 @@ export namespace Prisma {
     id?: true
     pending_amount?: true
     locked_amount?: true
-    balance_id?: true
   }
 
   export type WorkerSumAggregateInputType = {
     id?: true
     pending_amount?: true
     locked_amount?: true
-    balance_id?: true
   }
 
   export type WorkerMinAggregateInputType = {
@@ -2501,7 +2494,6 @@ export namespace Prisma {
     address?: true
     pending_amount?: true
     locked_amount?: true
-    balance_id?: true
   }
 
   export type WorkerMaxAggregateInputType = {
@@ -2509,7 +2501,6 @@ export namespace Prisma {
     address?: true
     pending_amount?: true
     locked_amount?: true
-    balance_id?: true
   }
 
   export type WorkerCountAggregateInputType = {
@@ -2517,7 +2508,6 @@ export namespace Prisma {
     address?: true
     pending_amount?: true
     locked_amount?: true
-    balance_id?: true
     _all?: true
   }
 
@@ -2612,7 +2602,6 @@ export namespace Prisma {
     address: string
     pending_amount: number
     locked_amount: number
-    balance_id: number
     _count: WorkerCountAggregateOutputType | null
     _avg: WorkerAvgAggregateOutputType | null
     _sum: WorkerSumAggregateOutputType | null
@@ -2639,7 +2628,6 @@ export namespace Prisma {
     address?: boolean
     pending_amount?: boolean
     locked_amount?: boolean
-    balance_id?: boolean
     submissions?: boolean | Worker$submissionsArgs<ExtArgs>
     _count?: boolean | WorkerCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["worker"]>
@@ -2649,7 +2637,6 @@ export namespace Prisma {
     address?: boolean
     pending_amount?: boolean
     locked_amount?: boolean
-    balance_id?: boolean
   }, ExtArgs["result"]["worker"]>
 
   export type WorkerSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2657,7 +2644,6 @@ export namespace Prisma {
     address?: boolean
     pending_amount?: boolean
     locked_amount?: boolean
-    balance_id?: boolean
   }, ExtArgs["result"]["worker"]>
 
   export type WorkerSelectScalar = {
@@ -2665,10 +2651,9 @@ export namespace Prisma {
     address?: boolean
     pending_amount?: boolean
     locked_amount?: boolean
-    balance_id?: boolean
   }
 
-  export type WorkerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "address" | "pending_amount" | "locked_amount" | "balance_id", ExtArgs["result"]["worker"]>
+  export type WorkerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "address" | "pending_amount" | "locked_amount", ExtArgs["result"]["worker"]>
   export type WorkerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     submissions?: boolean | Worker$submissionsArgs<ExtArgs>
     _count?: boolean | WorkerCountOutputTypeDefaultArgs<ExtArgs>
@@ -2686,7 +2671,6 @@ export namespace Prisma {
       address: string
       pending_amount: number
       locked_amount: number
-      balance_id: number
     }, ExtArgs["result"]["worker"]>
     composites: {}
   }
@@ -3115,7 +3099,6 @@ export namespace Prisma {
     readonly address: FieldRef<"Worker", 'String'>
     readonly pending_amount: FieldRef<"Worker", 'Int'>
     readonly locked_amount: FieldRef<"Worker", 'Int'>
-    readonly balance_id: FieldRef<"Worker", 'Int'>
   }
     
 
@@ -3573,6 +3556,7 @@ export namespace Prisma {
     user_id: number | null
     signature: string | null
     amount: string | null
+    done: boolean | null
     title: string | null
   }
 
@@ -3581,6 +3565,7 @@ export namespace Prisma {
     user_id: number | null
     signature: string | null
     amount: string | null
+    done: boolean | null
     title: string | null
   }
 
@@ -3589,6 +3574,7 @@ export namespace Prisma {
     user_id: number
     signature: number
     amount: number
+    done: number
     title: number
     _all: number
   }
@@ -3609,6 +3595,7 @@ export namespace Prisma {
     user_id?: true
     signature?: true
     amount?: true
+    done?: true
     title?: true
   }
 
@@ -3617,6 +3604,7 @@ export namespace Prisma {
     user_id?: true
     signature?: true
     amount?: true
+    done?: true
     title?: true
   }
 
@@ -3625,6 +3613,7 @@ export namespace Prisma {
     user_id?: true
     signature?: true
     amount?: true
+    done?: true
     title?: true
     _all?: true
   }
@@ -3720,6 +3709,7 @@ export namespace Prisma {
     user_id: number
     signature: string
     amount: string
+    done: boolean
     title: string
     _count: TaskCountAggregateOutputType | null
     _avg: TaskAvgAggregateOutputType | null
@@ -3747,6 +3737,7 @@ export namespace Prisma {
     user_id?: boolean
     signature?: boolean
     amount?: boolean
+    done?: boolean
     title?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     options?: boolean | Task$optionsArgs<ExtArgs>
@@ -3759,6 +3750,7 @@ export namespace Prisma {
     user_id?: boolean
     signature?: boolean
     amount?: boolean
+    done?: boolean
     title?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["task"]>
@@ -3768,6 +3760,7 @@ export namespace Prisma {
     user_id?: boolean
     signature?: boolean
     amount?: boolean
+    done?: boolean
     title?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["task"]>
@@ -3777,10 +3770,11 @@ export namespace Prisma {
     user_id?: boolean
     signature?: boolean
     amount?: boolean
+    done?: boolean
     title?: boolean
   }
 
-  export type TaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "signature" | "amount" | "title", ExtArgs["result"]["task"]>
+  export type TaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "signature" | "amount" | "done" | "title", ExtArgs["result"]["task"]>
   export type TaskInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     options?: boolean | Task$optionsArgs<ExtArgs>
@@ -3806,6 +3800,7 @@ export namespace Prisma {
       user_id: number
       signature: string
       amount: string
+      done: boolean
       title: string
     }, ExtArgs["result"]["task"]>
     composites: {}
@@ -4237,6 +4232,7 @@ export namespace Prisma {
     readonly user_id: FieldRef<"Task", 'Int'>
     readonly signature: FieldRef<"Task", 'String'>
     readonly amount: FieldRef<"Task", 'String'>
+    readonly done: FieldRef<"Task", 'Boolean'>
     readonly title: FieldRef<"Task", 'String'>
   }
     
@@ -6946,8 +6942,7 @@ export namespace Prisma {
     id: 'id',
     address: 'address',
     pending_amount: 'pending_amount',
-    locked_amount: 'locked_amount',
-    balance_id: 'balance_id'
+    locked_amount: 'locked_amount'
   };
 
   export type WorkerScalarFieldEnum = (typeof WorkerScalarFieldEnum)[keyof typeof WorkerScalarFieldEnum]
@@ -6958,6 +6953,7 @@ export namespace Prisma {
     user_id: 'user_id',
     signature: 'signature',
     amount: 'amount',
+    done: 'done',
     title: 'title'
   };
 
@@ -7034,6 +7030,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -7100,7 +7103,6 @@ export namespace Prisma {
     address?: StringFilter<"Worker"> | string
     pending_amount?: IntFilter<"Worker"> | number
     locked_amount?: IntFilter<"Worker"> | number
-    balance_id?: IntFilter<"Worker"> | number
     submissions?: SubmissionListRelationFilter
   }
 
@@ -7109,7 +7111,6 @@ export namespace Prisma {
     address?: SortOrder
     pending_amount?: SortOrder
     locked_amount?: SortOrder
-    balance_id?: SortOrder
     submissions?: SubmissionOrderByRelationAggregateInput
   }
 
@@ -7121,7 +7122,6 @@ export namespace Prisma {
     NOT?: WorkerWhereInput | WorkerWhereInput[]
     pending_amount?: IntFilter<"Worker"> | number
     locked_amount?: IntFilter<"Worker"> | number
-    balance_id?: IntFilter<"Worker"> | number
     submissions?: SubmissionListRelationFilter
   }, "id" | "address">
 
@@ -7130,7 +7130,6 @@ export namespace Prisma {
     address?: SortOrder
     pending_amount?: SortOrder
     locked_amount?: SortOrder
-    balance_id?: SortOrder
     _count?: WorkerCountOrderByAggregateInput
     _avg?: WorkerAvgOrderByAggregateInput
     _max?: WorkerMaxOrderByAggregateInput
@@ -7146,7 +7145,6 @@ export namespace Prisma {
     address?: StringWithAggregatesFilter<"Worker"> | string
     pending_amount?: IntWithAggregatesFilter<"Worker"> | number
     locked_amount?: IntWithAggregatesFilter<"Worker"> | number
-    balance_id?: IntWithAggregatesFilter<"Worker"> | number
   }
 
   export type TaskWhereInput = {
@@ -7157,6 +7155,7 @@ export namespace Prisma {
     user_id?: IntFilter<"Task"> | number
     signature?: StringFilter<"Task"> | string
     amount?: StringFilter<"Task"> | string
+    done?: BoolFilter<"Task"> | boolean
     title?: StringFilter<"Task"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     options?: OptionListRelationFilter
@@ -7168,6 +7167,7 @@ export namespace Prisma {
     user_id?: SortOrder
     signature?: SortOrder
     amount?: SortOrder
+    done?: SortOrder
     title?: SortOrder
     user?: UserOrderByWithRelationInput
     options?: OptionOrderByRelationAggregateInput
@@ -7182,6 +7182,7 @@ export namespace Prisma {
     user_id?: IntFilter<"Task"> | number
     signature?: StringFilter<"Task"> | string
     amount?: StringFilter<"Task"> | string
+    done?: BoolFilter<"Task"> | boolean
     title?: StringFilter<"Task"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     options?: OptionListRelationFilter
@@ -7193,6 +7194,7 @@ export namespace Prisma {
     user_id?: SortOrder
     signature?: SortOrder
     amount?: SortOrder
+    done?: SortOrder
     title?: SortOrder
     _count?: TaskCountOrderByAggregateInput
     _avg?: TaskAvgOrderByAggregateInput
@@ -7209,6 +7211,7 @@ export namespace Prisma {
     user_id?: IntWithAggregatesFilter<"Task"> | number
     signature?: StringWithAggregatesFilter<"Task"> | string
     amount?: StringWithAggregatesFilter<"Task"> | string
+    done?: BoolWithAggregatesFilter<"Task"> | boolean
     title?: StringWithAggregatesFilter<"Task"> | string
   }
 
@@ -7365,7 +7368,6 @@ export namespace Prisma {
     address: string
     pending_amount: number
     locked_amount: number
-    balance_id: number
     submissions?: SubmissionCreateNestedManyWithoutWorkerInput
   }
 
@@ -7374,7 +7376,6 @@ export namespace Prisma {
     address: string
     pending_amount: number
     locked_amount: number
-    balance_id: number
     submissions?: SubmissionUncheckedCreateNestedManyWithoutWorkerInput
   }
 
@@ -7382,7 +7383,6 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     pending_amount?: IntFieldUpdateOperationsInput | number
     locked_amount?: IntFieldUpdateOperationsInput | number
-    balance_id?: IntFieldUpdateOperationsInput | number
     submissions?: SubmissionUpdateManyWithoutWorkerNestedInput
   }
 
@@ -7391,7 +7391,6 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     pending_amount?: IntFieldUpdateOperationsInput | number
     locked_amount?: IntFieldUpdateOperationsInput | number
-    balance_id?: IntFieldUpdateOperationsInput | number
     submissions?: SubmissionUncheckedUpdateManyWithoutWorkerNestedInput
   }
 
@@ -7400,14 +7399,12 @@ export namespace Prisma {
     address: string
     pending_amount: number
     locked_amount: number
-    balance_id: number
   }
 
   export type WorkerUpdateManyMutationInput = {
     address?: StringFieldUpdateOperationsInput | string
     pending_amount?: IntFieldUpdateOperationsInput | number
     locked_amount?: IntFieldUpdateOperationsInput | number
-    balance_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type WorkerUncheckedUpdateManyInput = {
@@ -7415,12 +7412,12 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     pending_amount?: IntFieldUpdateOperationsInput | number
     locked_amount?: IntFieldUpdateOperationsInput | number
-    balance_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type TaskCreateInput = {
     signature: string
     amount: string
+    done?: boolean
     title?: string
     user: UserCreateNestedOneWithoutTasksInput
     options?: OptionCreateNestedManyWithoutTaskInput
@@ -7432,6 +7429,7 @@ export namespace Prisma {
     user_id: number
     signature: string
     amount: string
+    done?: boolean
     title?: string
     options?: OptionUncheckedCreateNestedManyWithoutTaskInput
     submission?: SubmissionUncheckedCreateNestedManyWithoutTaskInput
@@ -7440,6 +7438,7 @@ export namespace Prisma {
   export type TaskUpdateInput = {
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutTasksNestedInput
     options?: OptionUpdateManyWithoutTaskNestedInput
@@ -7451,6 +7450,7 @@ export namespace Prisma {
     user_id?: IntFieldUpdateOperationsInput | number
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
     options?: OptionUncheckedUpdateManyWithoutTaskNestedInput
     submission?: SubmissionUncheckedUpdateManyWithoutTaskNestedInput
@@ -7461,12 +7461,14 @@ export namespace Prisma {
     user_id: number
     signature: string
     amount: string
+    done?: boolean
     title?: string
   }
 
   export type TaskUpdateManyMutationInput = {
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
   }
 
@@ -7475,6 +7477,7 @@ export namespace Prisma {
     user_id?: IntFieldUpdateOperationsInput | number
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
   }
 
@@ -7678,14 +7681,12 @@ export namespace Prisma {
     address?: SortOrder
     pending_amount?: SortOrder
     locked_amount?: SortOrder
-    balance_id?: SortOrder
   }
 
   export type WorkerAvgOrderByAggregateInput = {
     id?: SortOrder
     pending_amount?: SortOrder
     locked_amount?: SortOrder
-    balance_id?: SortOrder
   }
 
   export type WorkerMaxOrderByAggregateInput = {
@@ -7693,7 +7694,6 @@ export namespace Prisma {
     address?: SortOrder
     pending_amount?: SortOrder
     locked_amount?: SortOrder
-    balance_id?: SortOrder
   }
 
   export type WorkerMinOrderByAggregateInput = {
@@ -7701,14 +7701,17 @@ export namespace Prisma {
     address?: SortOrder
     pending_amount?: SortOrder
     locked_amount?: SortOrder
-    balance_id?: SortOrder
   }
 
   export type WorkerSumOrderByAggregateInput = {
     id?: SortOrder
     pending_amount?: SortOrder
     locked_amount?: SortOrder
-    balance_id?: SortOrder
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type UserScalarRelationFilter = {
@@ -7731,6 +7734,7 @@ export namespace Prisma {
     user_id?: SortOrder
     signature?: SortOrder
     amount?: SortOrder
+    done?: SortOrder
     title?: SortOrder
   }
 
@@ -7744,6 +7748,7 @@ export namespace Prisma {
     user_id?: SortOrder
     signature?: SortOrder
     amount?: SortOrder
+    done?: SortOrder
     title?: SortOrder
   }
 
@@ -7752,12 +7757,21 @@ export namespace Prisma {
     user_id?: SortOrder
     signature?: SortOrder
     amount?: SortOrder
+    done?: SortOrder
     title?: SortOrder
   }
 
   export type TaskSumOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type TaskScalarRelationFilter = {
@@ -7969,6 +7983,10 @@ export namespace Prisma {
     connectOrCreate?: SubmissionCreateOrConnectWithoutTaskInput | SubmissionCreateOrConnectWithoutTaskInput[]
     createMany?: SubmissionCreateManyTaskInputEnvelope
     connect?: SubmissionWhereUniqueInput | SubmissionWhereUniqueInput[]
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type UserUpdateOneRequiredWithoutTasksNestedInput = {
@@ -8202,9 +8220,23 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type TaskCreateWithoutUserInput = {
     signature: string
     amount: string
+    done?: boolean
     title?: string
     options?: OptionCreateNestedManyWithoutTaskInput
     submission?: SubmissionCreateNestedManyWithoutTaskInput
@@ -8214,6 +8246,7 @@ export namespace Prisma {
     id?: number
     signature: string
     amount: string
+    done?: boolean
     title?: string
     options?: OptionUncheckedCreateNestedManyWithoutTaskInput
     submission?: SubmissionUncheckedCreateNestedManyWithoutTaskInput
@@ -8253,6 +8286,7 @@ export namespace Prisma {
     user_id?: IntFilter<"Task"> | number
     signature?: StringFilter<"Task"> | string
     amount?: StringFilter<"Task"> | string
+    done?: BoolFilter<"Task"> | boolean
     title?: StringFilter<"Task"> | string
   }
 
@@ -8428,6 +8462,7 @@ export namespace Prisma {
   export type TaskCreateWithoutOptionsInput = {
     signature: string
     amount: string
+    done?: boolean
     title?: string
     user: UserCreateNestedOneWithoutTasksInput
     submission?: SubmissionCreateNestedManyWithoutTaskInput
@@ -8438,6 +8473,7 @@ export namespace Prisma {
     user_id: number
     signature: string
     amount: string
+    done?: boolean
     title?: string
     submission?: SubmissionUncheckedCreateNestedManyWithoutTaskInput
   }
@@ -8484,6 +8520,7 @@ export namespace Prisma {
   export type TaskUpdateWithoutOptionsInput = {
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutTasksNestedInput
     submission?: SubmissionUpdateManyWithoutTaskNestedInput
@@ -8494,6 +8531,7 @@ export namespace Prisma {
     user_id?: IntFieldUpdateOperationsInput | number
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
     submission?: SubmissionUncheckedUpdateManyWithoutTaskNestedInput
   }
@@ -8518,7 +8556,6 @@ export namespace Prisma {
     address: string
     pending_amount: number
     locked_amount: number
-    balance_id: number
   }
 
   export type WorkerUncheckedCreateWithoutSubmissionsInput = {
@@ -8526,7 +8563,6 @@ export namespace Prisma {
     address: string
     pending_amount: number
     locked_amount: number
-    balance_id: number
   }
 
   export type WorkerCreateOrConnectWithoutSubmissionsInput = {
@@ -8553,6 +8589,7 @@ export namespace Prisma {
   export type TaskCreateWithoutSubmissionInput = {
     signature: string
     amount: string
+    done?: boolean
     title?: string
     user: UserCreateNestedOneWithoutTasksInput
     options?: OptionCreateNestedManyWithoutTaskInput
@@ -8563,6 +8600,7 @@ export namespace Prisma {
     user_id: number
     signature: string
     amount: string
+    done?: boolean
     title?: string
     options?: OptionUncheckedCreateNestedManyWithoutTaskInput
   }
@@ -8587,7 +8625,6 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     pending_amount?: IntFieldUpdateOperationsInput | number
     locked_amount?: IntFieldUpdateOperationsInput | number
-    balance_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type WorkerUncheckedUpdateWithoutSubmissionsInput = {
@@ -8595,7 +8632,6 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     pending_amount?: IntFieldUpdateOperationsInput | number
     locked_amount?: IntFieldUpdateOperationsInput | number
-    balance_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type OptionUpsertWithoutSubmissionsInput = {
@@ -8634,6 +8670,7 @@ export namespace Prisma {
   export type TaskUpdateWithoutSubmissionInput = {
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutTasksNestedInput
     options?: OptionUpdateManyWithoutTaskNestedInput
@@ -8644,6 +8681,7 @@ export namespace Prisma {
     user_id?: IntFieldUpdateOperationsInput | number
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
     options?: OptionUncheckedUpdateManyWithoutTaskNestedInput
   }
@@ -8652,12 +8690,14 @@ export namespace Prisma {
     id?: number
     signature: string
     amount: string
+    done?: boolean
     title?: string
   }
 
   export type TaskUpdateWithoutUserInput = {
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
     options?: OptionUpdateManyWithoutTaskNestedInput
     submission?: SubmissionUpdateManyWithoutTaskNestedInput
@@ -8667,6 +8707,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
     options?: OptionUncheckedUpdateManyWithoutTaskNestedInput
     submission?: SubmissionUncheckedUpdateManyWithoutTaskNestedInput
@@ -8676,6 +8717,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
   }
 
