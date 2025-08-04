@@ -3556,8 +3556,8 @@ export namespace Prisma {
     user_id: number | null
     signature: string | null
     amount: string | null
-    done: boolean | null
     title: string | null
+    done: boolean | null
   }
 
   export type TaskMaxAggregateOutputType = {
@@ -3565,8 +3565,8 @@ export namespace Prisma {
     user_id: number | null
     signature: string | null
     amount: string | null
-    done: boolean | null
     title: string | null
+    done: boolean | null
   }
 
   export type TaskCountAggregateOutputType = {
@@ -3574,8 +3574,8 @@ export namespace Prisma {
     user_id: number
     signature: number
     amount: number
-    done: number
     title: number
+    done: number
     _all: number
   }
 
@@ -3595,8 +3595,8 @@ export namespace Prisma {
     user_id?: true
     signature?: true
     amount?: true
-    done?: true
     title?: true
+    done?: true
   }
 
   export type TaskMaxAggregateInputType = {
@@ -3604,8 +3604,8 @@ export namespace Prisma {
     user_id?: true
     signature?: true
     amount?: true
-    done?: true
     title?: true
+    done?: true
   }
 
   export type TaskCountAggregateInputType = {
@@ -3613,8 +3613,8 @@ export namespace Prisma {
     user_id?: true
     signature?: true
     amount?: true
-    done?: true
     title?: true
+    done?: true
     _all?: true
   }
 
@@ -3709,8 +3709,8 @@ export namespace Prisma {
     user_id: number
     signature: string
     amount: string
-    done: boolean
     title: string
+    done: boolean
     _count: TaskCountAggregateOutputType | null
     _avg: TaskAvgAggregateOutputType | null
     _sum: TaskSumAggregateOutputType | null
@@ -3737,8 +3737,8 @@ export namespace Prisma {
     user_id?: boolean
     signature?: boolean
     amount?: boolean
-    done?: boolean
     title?: boolean
+    done?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     options?: boolean | Task$optionsArgs<ExtArgs>
     submission?: boolean | Task$submissionArgs<ExtArgs>
@@ -3750,8 +3750,8 @@ export namespace Prisma {
     user_id?: boolean
     signature?: boolean
     amount?: boolean
-    done?: boolean
     title?: boolean
+    done?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["task"]>
 
@@ -3760,8 +3760,8 @@ export namespace Prisma {
     user_id?: boolean
     signature?: boolean
     amount?: boolean
-    done?: boolean
     title?: boolean
+    done?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["task"]>
 
@@ -3770,11 +3770,11 @@ export namespace Prisma {
     user_id?: boolean
     signature?: boolean
     amount?: boolean
-    done?: boolean
     title?: boolean
+    done?: boolean
   }
 
-  export type TaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "signature" | "amount" | "done" | "title", ExtArgs["result"]["task"]>
+  export type TaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "signature" | "amount" | "title" | "done", ExtArgs["result"]["task"]>
   export type TaskInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     options?: boolean | Task$optionsArgs<ExtArgs>
@@ -3800,8 +3800,8 @@ export namespace Prisma {
       user_id: number
       signature: string
       amount: string
-      done: boolean
       title: string
+      done: boolean
     }, ExtArgs["result"]["task"]>
     composites: {}
   }
@@ -4232,8 +4232,8 @@ export namespace Prisma {
     readonly user_id: FieldRef<"Task", 'Int'>
     readonly signature: FieldRef<"Task", 'String'>
     readonly amount: FieldRef<"Task", 'String'>
-    readonly done: FieldRef<"Task", 'Boolean'>
     readonly title: FieldRef<"Task", 'String'>
+    readonly done: FieldRef<"Task", 'Boolean'>
   }
     
 
@@ -6953,8 +6953,8 @@ export namespace Prisma {
     user_id: 'user_id',
     signature: 'signature',
     amount: 'amount',
-    done: 'done',
-    title: 'title'
+    title: 'title',
+    done: 'done'
   };
 
   export type TaskScalarFieldEnum = (typeof TaskScalarFieldEnum)[keyof typeof TaskScalarFieldEnum]
@@ -7155,8 +7155,8 @@ export namespace Prisma {
     user_id?: IntFilter<"Task"> | number
     signature?: StringFilter<"Task"> | string
     amount?: StringFilter<"Task"> | string
-    done?: BoolFilter<"Task"> | boolean
     title?: StringFilter<"Task"> | string
+    done?: BoolFilter<"Task"> | boolean
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     options?: OptionListRelationFilter
     submission?: SubmissionListRelationFilter
@@ -7167,8 +7167,8 @@ export namespace Prisma {
     user_id?: SortOrder
     signature?: SortOrder
     amount?: SortOrder
-    done?: SortOrder
     title?: SortOrder
+    done?: SortOrder
     user?: UserOrderByWithRelationInput
     options?: OptionOrderByRelationAggregateInput
     submission?: SubmissionOrderByRelationAggregateInput
@@ -7182,8 +7182,8 @@ export namespace Prisma {
     user_id?: IntFilter<"Task"> | number
     signature?: StringFilter<"Task"> | string
     amount?: StringFilter<"Task"> | string
-    done?: BoolFilter<"Task"> | boolean
     title?: StringFilter<"Task"> | string
+    done?: BoolFilter<"Task"> | boolean
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     options?: OptionListRelationFilter
     submission?: SubmissionListRelationFilter
@@ -7194,8 +7194,8 @@ export namespace Prisma {
     user_id?: SortOrder
     signature?: SortOrder
     amount?: SortOrder
-    done?: SortOrder
     title?: SortOrder
+    done?: SortOrder
     _count?: TaskCountOrderByAggregateInput
     _avg?: TaskAvgOrderByAggregateInput
     _max?: TaskMaxOrderByAggregateInput
@@ -7211,8 +7211,8 @@ export namespace Prisma {
     user_id?: IntWithAggregatesFilter<"Task"> | number
     signature?: StringWithAggregatesFilter<"Task"> | string
     amount?: StringWithAggregatesFilter<"Task"> | string
-    done?: BoolWithAggregatesFilter<"Task"> | boolean
     title?: StringWithAggregatesFilter<"Task"> | string
+    done?: BoolWithAggregatesFilter<"Task"> | boolean
   }
 
   export type OptionWhereInput = {
@@ -7417,8 +7417,8 @@ export namespace Prisma {
   export type TaskCreateInput = {
     signature: string
     amount: string
-    done?: boolean
     title?: string
+    done?: boolean
     user: UserCreateNestedOneWithoutTasksInput
     options?: OptionCreateNestedManyWithoutTaskInput
     submission?: SubmissionCreateNestedManyWithoutTaskInput
@@ -7429,8 +7429,8 @@ export namespace Prisma {
     user_id: number
     signature: string
     amount: string
-    done?: boolean
     title?: string
+    done?: boolean
     options?: OptionUncheckedCreateNestedManyWithoutTaskInput
     submission?: SubmissionUncheckedCreateNestedManyWithoutTaskInput
   }
@@ -7438,8 +7438,8 @@ export namespace Prisma {
   export type TaskUpdateInput = {
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
-    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutTasksNestedInput
     options?: OptionUpdateManyWithoutTaskNestedInput
     submission?: SubmissionUpdateManyWithoutTaskNestedInput
@@ -7450,8 +7450,8 @@ export namespace Prisma {
     user_id?: IntFieldUpdateOperationsInput | number
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
-    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     options?: OptionUncheckedUpdateManyWithoutTaskNestedInput
     submission?: SubmissionUncheckedUpdateManyWithoutTaskNestedInput
   }
@@ -7461,15 +7461,15 @@ export namespace Prisma {
     user_id: number
     signature: string
     amount: string
-    done?: boolean
     title?: string
+    done?: boolean
   }
 
   export type TaskUpdateManyMutationInput = {
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
-    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type TaskUncheckedUpdateManyInput = {
@@ -7477,8 +7477,8 @@ export namespace Prisma {
     user_id?: IntFieldUpdateOperationsInput | number
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
-    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type OptionCreateInput = {
@@ -7734,8 +7734,8 @@ export namespace Prisma {
     user_id?: SortOrder
     signature?: SortOrder
     amount?: SortOrder
-    done?: SortOrder
     title?: SortOrder
+    done?: SortOrder
   }
 
   export type TaskAvgOrderByAggregateInput = {
@@ -7748,8 +7748,8 @@ export namespace Prisma {
     user_id?: SortOrder
     signature?: SortOrder
     amount?: SortOrder
-    done?: SortOrder
     title?: SortOrder
+    done?: SortOrder
   }
 
   export type TaskMinOrderByAggregateInput = {
@@ -7757,8 +7757,8 @@ export namespace Prisma {
     user_id?: SortOrder
     signature?: SortOrder
     amount?: SortOrder
-    done?: SortOrder
     title?: SortOrder
+    done?: SortOrder
   }
 
   export type TaskSumOrderByAggregateInput = {
@@ -8236,8 +8236,8 @@ export namespace Prisma {
   export type TaskCreateWithoutUserInput = {
     signature: string
     amount: string
-    done?: boolean
     title?: string
+    done?: boolean
     options?: OptionCreateNestedManyWithoutTaskInput
     submission?: SubmissionCreateNestedManyWithoutTaskInput
   }
@@ -8246,8 +8246,8 @@ export namespace Prisma {
     id?: number
     signature: string
     amount: string
-    done?: boolean
     title?: string
+    done?: boolean
     options?: OptionUncheckedCreateNestedManyWithoutTaskInput
     submission?: SubmissionUncheckedCreateNestedManyWithoutTaskInput
   }
@@ -8286,8 +8286,8 @@ export namespace Prisma {
     user_id?: IntFilter<"Task"> | number
     signature?: StringFilter<"Task"> | string
     amount?: StringFilter<"Task"> | string
-    done?: BoolFilter<"Task"> | boolean
     title?: StringFilter<"Task"> | string
+    done?: BoolFilter<"Task"> | boolean
   }
 
   export type SubmissionCreateWithoutWorkerInput = {
@@ -8462,8 +8462,8 @@ export namespace Prisma {
   export type TaskCreateWithoutOptionsInput = {
     signature: string
     amount: string
-    done?: boolean
     title?: string
+    done?: boolean
     user: UserCreateNestedOneWithoutTasksInput
     submission?: SubmissionCreateNestedManyWithoutTaskInput
   }
@@ -8473,8 +8473,8 @@ export namespace Prisma {
     user_id: number
     signature: string
     amount: string
-    done?: boolean
     title?: string
+    done?: boolean
     submission?: SubmissionUncheckedCreateNestedManyWithoutTaskInput
   }
 
@@ -8520,8 +8520,8 @@ export namespace Prisma {
   export type TaskUpdateWithoutOptionsInput = {
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
-    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutTasksNestedInput
     submission?: SubmissionUpdateManyWithoutTaskNestedInput
   }
@@ -8531,8 +8531,8 @@ export namespace Prisma {
     user_id?: IntFieldUpdateOperationsInput | number
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
-    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     submission?: SubmissionUncheckedUpdateManyWithoutTaskNestedInput
   }
 
@@ -8589,8 +8589,8 @@ export namespace Prisma {
   export type TaskCreateWithoutSubmissionInput = {
     signature: string
     amount: string
-    done?: boolean
     title?: string
+    done?: boolean
     user: UserCreateNestedOneWithoutTasksInput
     options?: OptionCreateNestedManyWithoutTaskInput
   }
@@ -8600,8 +8600,8 @@ export namespace Prisma {
     user_id: number
     signature: string
     amount: string
-    done?: boolean
     title?: string
+    done?: boolean
     options?: OptionUncheckedCreateNestedManyWithoutTaskInput
   }
 
@@ -8670,8 +8670,8 @@ export namespace Prisma {
   export type TaskUpdateWithoutSubmissionInput = {
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
-    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutTasksNestedInput
     options?: OptionUpdateManyWithoutTaskNestedInput
   }
@@ -8681,8 +8681,8 @@ export namespace Prisma {
     user_id?: IntFieldUpdateOperationsInput | number
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
-    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     options?: OptionUncheckedUpdateManyWithoutTaskNestedInput
   }
 
@@ -8690,15 +8690,15 @@ export namespace Prisma {
     id?: number
     signature: string
     amount: string
-    done?: boolean
     title?: string
+    done?: boolean
   }
 
   export type TaskUpdateWithoutUserInput = {
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
-    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     options?: OptionUpdateManyWithoutTaskNestedInput
     submission?: SubmissionUpdateManyWithoutTaskNestedInput
   }
@@ -8707,8 +8707,8 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
-    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
     options?: OptionUncheckedUpdateManyWithoutTaskNestedInput
     submission?: SubmissionUncheckedUpdateManyWithoutTaskNestedInput
   }
@@ -8717,8 +8717,8 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     signature?: StringFieldUpdateOperationsInput | string
     amount?: StringFieldUpdateOperationsInput | string
-    done?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
+    done?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type SubmissionCreateManyWorkerInput = {

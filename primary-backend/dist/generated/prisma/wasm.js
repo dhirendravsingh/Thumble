@@ -137,8 +137,8 @@ exports.Prisma.TaskScalarFieldEnum = {
   user_id: 'user_id',
   signature: 'signature',
   amount: 'amount',
-  done: 'done',
-  title: 'title'
+  title: 'title',
+  done: 'done'
 };
 
 exports.Prisma.OptionScalarFieldEnum = {

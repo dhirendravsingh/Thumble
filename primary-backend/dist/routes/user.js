@@ -139,6 +139,7 @@ router.get("/task", middleware_1.middleware, (req, res) => __awaiter(void 0, voi
         }
     });
     const result = {};
+    // Initialize result with options
     taskDetails.options.forEach(o => {
         result[o.id] = {
             count: 0,
@@ -147,6 +148,7 @@ router.get("/task", middleware_1.middleware, (req, res) => __awaiter(void 0, voi
             }
         };
     });
+    // Count responses
     responses.forEach(r => {
         result[r.option_id].count++;
     });

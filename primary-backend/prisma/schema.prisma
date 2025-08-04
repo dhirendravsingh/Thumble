@@ -36,9 +36,9 @@ model Task {
   user_id Int
   signature String
   amount String
-  done Boolean @default(false)
   title String @default("Please select the most attractive thumbnail")
   user User @relation(references: [id], fields: [user_id])
+  done Boolean @default(false)
   options Option[]
   submission Submission[]
 }

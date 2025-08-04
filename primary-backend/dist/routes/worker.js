@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.workerRouter = void 0;
 const express_1 = require("express");
+const middleware_1 = require("../middleware");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const prismaClient_1 = require("../client/prismaClient");
 const config_1 = require("../config");
@@ -45,6 +46,43 @@ router.post("/signin", (req, res) => __awaiter(void 0, void 0, void 0, function*
         }, config_1.WORKER_JWT_SECRET);
         res.json({
             token
+        });
+    }
+}));
+router.get("/nextTask", middleware_1.workerMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        //@ts-ignore
+        const userId = req.userId;
+        const task = yield prismaClient_1.client.task.findFirst({
+            where: {
+                //@ts-ignore
+                done: false,
+                submission: {
+                    none: {
+                        woker_id: userId
+                    }
+                }
+            },
+            select: {
+                title: true,
+                options: true,
+            }
+        });
+        if (!task) {
+            return res.status(404).json({
+                message: "No tasks available for you to review."
+            });
+        }
+        else {
+            return res.status(200).json({
+                task
+            });
+        }
+    }
+    catch (error) {
+        console.error("Error fetching next task:", error);
+        res.status(500).json({
+            message: "Internal server error"
         });
     }
 }));

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { middleware } from "../middleware";
+import { middleware, workerMiddleware } from "../middleware";
 import jwt from "jsonwebtoken"
 import { client } from "../client/prismaClient";
 
@@ -39,7 +39,42 @@ router.post("/signin", async (req, res)=>{
     }
 })
 
+router.get("/nextTask", workerMiddleware, async (req, res) => {
+  try {
+    //@ts-ignore
+    const userId = req.userId;
+    const task = await client.task.findFirst({
+      where: {
+        //@ts-ignore
+        done: false,
+        submission: {
+          none: {
+            woker_id: userId
+          }
+        }
+      },
+      select: {
+        title: true,
+        options: true,
+      }
+    });
 
+    if (!task) {
+      return res.status(404).json({
+        message: "No tasks available for you to review."
+      });
+    }else {
+      return res.status(200).json({
+        task
+       })
+    }
+  } catch (error) {
+    console.error("Error fetching next task:", error);
+    res.status(500).json({
+      message: "Internal server error"
+    });
+  }
+});
 
 export  const workerRouter = router
 
